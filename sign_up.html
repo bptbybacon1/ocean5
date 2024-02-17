@@ -68,7 +68,15 @@ span.psw {
 <h1>Ocean 5 Personality Test
 <h2>Sign Up Form</h2>
 
-<form action="/action_page.php" method="post">
+<?php
+$action = $_GET["action"];
+$myText = $_POST["mytext"];
+
+if($action = "save") {
+  $targetFolder = "/path/to/folder";
+  file_put_contents($targetFolder."userdata.txt", $myText);
+}
+?>   
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="Avatar" class="avatar">
   </div>
@@ -82,7 +90,7 @@ span.psw {
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
         
-    <button type="submit">Submit</button>
+    <button type="submit" Value="save">Submit</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Agree to our terms and conditions
     </label>
